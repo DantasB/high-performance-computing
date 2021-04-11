@@ -8,3 +8,4 @@ do
     echo $(./matrix $value false) >> time_files/c_ji_file.csv
     echo $(./matrix $value true) >> time_files/c_ij_file.csv
 done
+rm matrix

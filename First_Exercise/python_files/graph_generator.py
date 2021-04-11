@@ -28,7 +28,8 @@ def plot_scatter(data: list, save_path: str) -> None:
     plt.xlabel("Size of N")
 
     splitted_path = get_title(save_path)
-    plt.title(f"Graph for {splitted_path[len(splitted_path)-2].upper()} file")
+    language = splitted_path[len(splitted_path)-2].upper()
+    plt.title(f"Graph for {language} file")
 
     for x, y, archive_name in data:
         plt.plot(x, y)
@@ -36,6 +37,7 @@ def plot_scatter(data: list, save_path: str) -> None:
 
     plt.legend(legend)
     plt.savefig(save_path)
+    print(f"Graph generated for the language: {language}")
 
 
 if __name__ == "__main__":

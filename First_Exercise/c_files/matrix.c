@@ -13,9 +13,9 @@ char *lower(char *string)
     return string;
 }
 
-double get_random_value(int vector_size)
+double get_random_value(int size)
 {
-    return rand() % vector_size + 1;
+    return rand() % size + 1;
 }
 
 double *instantiate_vector(int vector_size)

@@ -18,13 +18,13 @@ mkdir -p $IMAGE_DIR/Fortran
 echo 'Number;Time(s)' > $C_IJ_PATH
 echo 'Number;Time(s)' > $C_JI_PATH
 
-gcc matrix.c -o matrix
-for value in $(python values_generator.py 38000 True)
+gcc c_files/matrix.c -o matrix
+for value in $(python python_files/values_generator.py 38000 True)
 do
     echo $(./matrix $value true) >> $C_IJ_PATH 
     echo $(./matrix $value false) >> $C_JI_PATH 
 done
 rm matrix
 
-echo $(python graph_generator.py $C_IMAGE_PATH $C_IJ_PATH $C_JI_PATH)
+echo $(python python_files/graph_generator.py $C_IMAGE_PATH $C_IJ_PATH $C_JI_PATH)
 rm -rf $TIME_DIR

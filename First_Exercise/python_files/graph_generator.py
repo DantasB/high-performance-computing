@@ -41,10 +41,10 @@ def plot_scatter(data: list, save_path: str) -> None:
 if __name__ == "__main__":
     try:
         if(len(sys.argv) != 4):
-            print('DEU BODE')
+            print('Could not save the file. Check your arguments')
             exit()
     except:
-        print('DEU BODE')
+        print('Could not save the file. Check your arguments')
         exit()
 
     data = []

@@ -39,7 +39,7 @@ program matrix_vector
         CALL EXIT(0)
     end if
 
-
+    !Deallocating variables
     deallocate(matrix)
     deallocate(vector)
     deallocate(result)

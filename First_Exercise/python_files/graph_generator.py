@@ -10,7 +10,6 @@ def get_title(archive_name):
 def read_csv(archive_name: str) -> tuple:
     x = []
     y = []
-    first_line = True
     with open(archive_name, 'r') as csv_file:
         dataset = csv.reader(csv_file, delimiter=';')
         next(dataset)

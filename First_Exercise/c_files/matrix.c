@@ -108,27 +108,25 @@ int main(int argc, char *argv[])
 {
     clock_t antes, depois;
     double *result;
-    if (argc != 3 || (strcmp(lower(argv[2]), "true") != 0 && strcmp(lower(argv[2]), "false") != 0))
+    if (argc != 3 || (atoi(argv[2]) != 0 && atoi(argv[2]) != 1))
     {
         printf("Argumentos inválidos.\n");
         return 0;
     }
 
     int size = atoi(argv[1]);
-    char *type_of_function = lower(argv[2]);
+    int type_of_function = atoi(argv[2]);
 
     srand(time(NULL));
 
     double **matrix = generate_random_matrix(size);
     double *vector = generate_random_vector(size);
 
-    if (strcmp(lower(argv[2]), "true") == 0)
+    if (type_of_function == 1)
     {
         antes = clock();
         result = matrix_vector_product_ij(size, matrix, vector);
         depois = clock();
-
-        printf("%d;%.6f\n", size, ((double)(depois - antes)) / CLOCKS_PER_SEC);
     }
 
     else
@@ -136,13 +134,13 @@ int main(int argc, char *argv[])
         antes = clock();
         result = matrix_vector_product_ji(size, matrix, vector);
         depois = clock();
-
-        printf("%d;%.6f\n", size, ((double)(depois - antes)) / CLOCKS_PER_SEC);
     }
 
     free_matrix(matrix, size);
     free(vector);
     free(result);
+
+    printf("%d;%.6f\n", size, ((double)(depois - antes)) / CLOCKS_PER_SEC);
 
     return 0;
 }

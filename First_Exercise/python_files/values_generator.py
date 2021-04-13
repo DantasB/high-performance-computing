@@ -4,7 +4,7 @@ import sys
 def generate_power_values(n: int = 38000) -> None:
     result = []
     for i in range(0, n+1):
-        power = 2**i
+        power = int((2**i)*1.28)
         if(power > n):
             break
 

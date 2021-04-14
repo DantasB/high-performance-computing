@@ -1,7 +1,7 @@
 import sys
 
 
-def generate_power_values(n: int = 38000) -> None:
+def generate_power_values(n: int = 42000) -> None:
     result = []
     for i in range(0, n+1):
         power = int((2**i)*1.28)
@@ -13,7 +13,7 @@ def generate_power_values(n: int = 38000) -> None:
     print(' '.join(result))
 
 
-def generate_hundred_values(n: int = 38000) -> None:
+def generate_hundred_values(n: int = 42000) -> None:
     result = ['1']
     for i in range(100, n+1, 100):
         result.append(str(i))

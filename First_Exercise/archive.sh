@@ -32,7 +32,7 @@ echo 'Generating CSV Files'
 
 gcc c_files/matrix.c -o c_matrix
 gfortran fortran_files/matrix.f95 -o fortran_matrix
-for value in $(python python_files/values_generator.py 42000 $DATASET)
+for value in $(python python_files/values_generator.py 45000 $DATASET)
 do 
     echo $(./c_matrix $value 1) >> $C_IJ_PATH 
     echo $(./c_matrix $value 0) >> $C_JI_PATH 

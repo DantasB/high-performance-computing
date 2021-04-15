@@ -80,9 +80,7 @@ program matrix_vector
 
         real(8), dimension(:) :: vector
         integer :: size, i
-        real(8) :: number
         do i = 1, size
-            call random_number(number)
             vector(i) = 0
         end do 
     end

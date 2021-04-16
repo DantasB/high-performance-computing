@@ -37,6 +37,7 @@ $ pip install -r requirements.txt
 
 # Set the bash script permission to executable
 $ chmod +x runner
+
 # Execute the main program
 $ ./runner.sh
 

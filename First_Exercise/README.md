@@ -8,7 +8,6 @@
    * [About](#about)
    * [Requirements](#requirements)
    * [How to use](#how-to-use)
-      * [Setting up Arangodb](#arangodb-setup)    
       * [Setting up Program](#program-setup)
    * [Technologies](#technologies)
 <!--te-->

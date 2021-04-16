@@ -1,8 +1,8 @@
-# Computação-de-Alto-Desempenho Trabalho 1
+# First Exercise
 
 ![demonstration](https://cdn.discordapp.com/attachments/499753935754756098/832409443785375794/unknown.png)
 
-## Tabela de conteúdos
+## Table of Contents
 
 <!--ts-->
    * [About](#about)

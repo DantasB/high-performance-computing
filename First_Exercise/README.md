@@ -18,7 +18,9 @@ This repository is a study about High Computing Performance, where i was develop
 
 ## Requirements
 
-To run this repository by yourself you will need to install python3 in your machine and them install all the requirements inside the [requirements](requirements.txt) file
+To run this repository by yourself you will need to install python3 in your machine and them install all the requirements inside the [requirements](requirements.txt) file.
+
+Also you will need to install the gcc and gfortran compiler to run the code bellow.
 
 ## How to use
 

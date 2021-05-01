@@ -14,11 +14,6 @@ inline double seconds(void)
     return ((double)clock()) * secs_per_tick;
 }
 
-inline Real SQR(const Real &x)
-{
-    return (x * x);
-}
-
 inline Real BC(Real x, Real y)
 {
     return (x * x - y * y);
@@ -117,7 +112,10 @@ Real LaplaceSolver ::timeStep(const Real dt)
 {
     Real dx2 = g->dx * g->dx;
     Real dy2 = g->dy * g->dy;
+    Real summation = dx2 + dy2;
+    Real denominator = summation + summation;
     Real tmp;
+    Real partial_result;
     Real err = 0.0;
     int nx = g->nx;
     int ny = g->ny;
@@ -129,9 +127,10 @@ Real LaplaceSolver ::timeStep(const Real dt)
         {
             tmp = u[i][j];
             u[i][j] = ((u[i - 1][j] + u[i + 1][j]) * dy2 +
-                       (u[i][j - 1] + u[i][j + 1]) * dx2) *
-                      0.5 / (dx2 + dy2);
-            err += SQR(u[i][j] - tmp);
+                       (u[i][j - 1] + u[i][j + 1]) * dx2) /
+                      denominator;
+            partial_result = u[i][j] - tmp;
+            err += partial_result * partial_result;
         }
     }
     return sqrt(err);

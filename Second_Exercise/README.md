@@ -58,7 +58,7 @@ The code in this repository is not in the optimal way. You will need to figure o
 
 In the [answers](https://github.com/DantasB/High-Performance-Computing/blob/main/Second_Exercise/Respostas.pdf) you will find some of the optimizations that i made.
 
-I've also included the gprof archive of the 2 codes (main)[https://github.com/DantasB/High-Performance-Computing/blob/main/Second_Exercise/main_code.txt] and (refactored)[https://github.com/DantasB/High-Performance-Computing/blob/main/Second_Exercise/refactored_code.txt] containing all the gprof output for those 2 executions.
+I've also included the gprof archive of the 2 codes [main](https://github.com/DantasB/High-Performance-Computing/blob/main/Second_Exercise/main_code.txt) and [refactored](https://github.com/DantasB/High-Performance-Computing/blob/main/Second_Exercise/refactored_code.txt) containing all the gprof output for those 2 executions.
 
 ## Technologies
 

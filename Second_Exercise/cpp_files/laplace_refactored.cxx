@@ -113,7 +113,7 @@ Real LaplaceSolver ::timeStep(const Real dt)
     Real dx2 = g->dx * g->dx;
     Real dy2 = g->dy * g->dy;
     Real summation = dx2 + dy2;
-    Real denominator = summation + summation;
+    Real multiplier = 1 / (summation + summation);
     Real tmp;
     Real partial_result;
     Real err = 0.0;
@@ -127,8 +127,8 @@ Real LaplaceSolver ::timeStep(const Real dt)
         {
             tmp = u[i][j];
             u[i][j] = ((u[i - 1][j] + u[i + 1][j]) * dy2 +
-                       (u[i][j - 1] + u[i][j + 1]) * dx2) /
-                      denominator;
+                       (u[i][j - 1] + u[i][j + 1]) * dx2) *
+                      multiplier;
             partial_result = u[i][j] - tmp;
             err += partial_result * partial_result;
         }

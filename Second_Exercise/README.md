@@ -41,8 +41,8 @@ $ g++ -pg laplace.cxx -o laplace
 # Execute the laplace code
 $ ./laplace
 
-# Use the following parameters: 500 100 0.000000000000001
-Enter nx n_iter eps --> 500 100 0.000000000000001
+# Use the following parameters: 500 100 0.0000000000000001
+Enter nx n_iter eps --> 500 100 0.0000000000000001
 
 # The code execution will generate a gmon.out archive. Now execute gprof
 $ gprof laplace gmon.out > output.txt

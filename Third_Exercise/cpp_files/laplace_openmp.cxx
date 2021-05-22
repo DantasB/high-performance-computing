@@ -36,21 +36,23 @@ struct Grid
 
 Grid ::Grid(const int n_x, const int n_y) : nx(n_x), ny(n_y)
 {
+    int i, j;
+
     dx = 1.0 / Real(nx - 1);
     dy = 1.0 / Real(ny - 1);
 
     u = new Real *[nx];
 
 #pragma omp parallel for
-    for (int i = 0; i < nx; ++i)
+    for (i = 0; i < nx; ++i)
     {
         u[i] = new double[ny];
     }
 
 #pragma omp parallel for
-    for (int i = 0; i < nx; ++i)
+    for (i = 0; i < nx; ++i)
     {
-        for (int j = 0; j < ny; ++j)
+        for (j = 0; j < ny; ++j)
         {
             u[i][j] = 0.0;
         }
@@ -59,9 +61,9 @@ Grid ::Grid(const int n_x, const int n_y) : nx(n_x), ny(n_y)
 
 Grid ::~Grid()
 {
-
+    int i;
 #pragma omp parallel for
-    for (int i = 0; i < nx; ++i)
+    for (i = 0; i < nx; ++i)
     {
         delete[] u[i];
     }
@@ -71,20 +73,21 @@ Grid ::~Grid()
 void Grid ::setBCFunc(Real (*f)(const Real, const Real))
 {
     Real xmin, ymin, xmax, ymax, x, y;
+    int i, j;
     xmin = 0.0;
     ymin = 0.0;
     xmax = 1.0;
     ymax = 1.0;
-    /* Left and right sides. */
 
-    for (int j = 0; j < ny; ++j)
+    /* Left and right sides. */
+    for (j = 0; j < ny; ++j)
     {
         y = j * dy;
         u[0][j] = f(xmin, y);
         u[nx - 1][j] = f(xmax, y);
     }
     /* Top and bottom sides. */
-    for (int i = 0; i < nx; ++i)
+    for (i = 0; i < nx; ++i)
     {
         x = i * dx;
         u[i][0] = f(x, ymin);
@@ -126,6 +129,7 @@ Real LaplaceSolver ::timeStep(const Real dt)
     int ny = g->ny;
     Real **u = g->u;
 
+#pragma omp parallel for private(tmp, err)
     for (int i = 1; i < nx - 1; ++i)
     {
         for (int j = 1; j < ny - 1; ++j)
@@ -159,12 +163,14 @@ Real LaplaceSolver ::solve(const int n_iter, const Real eps)
 
 int main(int argc, char *argv[])
 {
-    /*
-    int nx, n_iter;
-    Real eps;
-    Real t_start, t_end;
+    int nx, n_iter, th_id, nthreads;
+    Real t_start, t_end, eps;
     std::cout << "Enter nx n_iter eps --> ";
     std::cin >> nx >> n_iter >> eps;
+
+#pragma omp parallel
+    nthreads = omp_get_num_threads();
+    printf("There are %d threads\n", nthreads);
 
     Grid *g = new Grid(nx, nx);
     g->setBCFunc(BC);
@@ -179,11 +185,5 @@ int main(int argc, char *argv[])
     t_end = seconds();
     std::cout << "Iterations took " << t_end - t_start << " seconds.\n";
 
-    */
-    int th_id, nthreads;
-
-#pragma omp parallel
-    nthreads = omp_get_num_threads();
-    printf("There are %d threads\n", nthreads);
     return 0;
 }

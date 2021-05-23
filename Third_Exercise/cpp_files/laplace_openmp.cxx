@@ -167,26 +167,23 @@ int main(int argc, char *argv[])
 {
     int nx, n_iter, th_id, nthreads;
     double t_start, t_end;
+    std::string method;
     Real eps;
-    std::cout << "Enter nx n_iter eps --> ";
-    std::cin >> nx >> n_iter >> eps;
+    Real result;
+    std::cin >> nx >> n_iter >> eps >> method;
 
 #pragma omp parallel
     nthreads = omp_get_num_threads();
-    printf("There are %d threads\n", nthreads);
 
     Grid *g = new Grid(nx, nx);
     g->setBCFunc(BC);
 
     LaplaceSolver s = LaplaceSolver(g);
 
-    std::cout << "nx = " << g->nx << ", ny = " << g->ny
-              << ", n_iter = " << n_iter << ", eps = " << eps << std::endl;
-
     t_start = omp_get_wtime();
-    std::cout << s.solve(n_iter, eps) << std::endl;
+    result = s.solve(n_iter, eps);
     t_end = omp_get_wtime();
-    std::cout << "Iterations took " << t_end - t_start << " seconds.\n";
+    std::cout << result << ";" << g->nx << ";" << t_end - t_start << ";'" << method << "';" << nthreads << std::endl;
 
     return 0;
 }

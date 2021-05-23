@@ -156,23 +156,21 @@ Real LaplaceSolver ::solve(const int n_iter, const Real eps)
 int main(int argc, char *argv[])
 {
     int nx, n_iter;
+    std::string method;
     Real eps;
     Real t_start, t_end;
-    std::cout << "Enter nx n_iter eps --> ";
-    std::cin >> nx >> n_iter >> eps;
+    Real result;
+    std::cin >> nx >> n_iter >> eps >> method;
 
     Grid *g = new Grid(nx, nx);
     g->setBCFunc(BC);
 
     LaplaceSolver s = LaplaceSolver(g);
 
-    std::cout << "nx = " << g->nx << ", ny = " << g->ny
-              << ", n_iter = " << n_iter << ", eps = " << eps << std::endl;
-
     t_start = seconds();
-    std::cout << s.solve(n_iter, eps) << std::endl;
+    result = s.solve(n_iter, eps);
     t_end = seconds();
-    std::cout << "Iterations took " << t_end - t_start << " seconds.\n";
+    std::cout << result << ";" << g->nx << ";" << t_end - t_start << ";'" << method << "';" << 1 << std::endl;
 
     return 0;
 }

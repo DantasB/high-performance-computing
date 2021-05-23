@@ -59,10 +59,10 @@ do
     export OMP_NUM_THREADS=$counter
     for nx in 512 1024 2048;
     do
-        echo $nx 1000 0.000000000000001 "O3 and fopenmp" > $INPUT_PATH
+        echo $nx 1000 0.000000000000001 "O3,fopenmp" > $INPUT_PATH
         echo $(./$EXECUTOR < $INPUT_PATH >> $OUTPUT_PATH) "Nx used was $nx"
     done
 done
 
 rm $EXECUTOR
-rmdir $INPUT_DIR
+rm -rf $INPUT_DIR

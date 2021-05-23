@@ -65,4 +65,4 @@ do
 done
 
 rm $EXECUTOR
-rmdir $INPUT_DIR
+rm -rf $INPUT_DIR

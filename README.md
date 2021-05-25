@@ -18,17 +18,17 @@ This repository is a study about High Computing Performance, where i was develop
 
 There's a list of folders that contains every exercise that i've solved in this chair.
 
-## About
+## List of Exercises
 
-### Exercise 1
+### [Exercise 1](https://github.com/DantasB/High-Performance-Computing/tree/main/First_Exercise)
 
 In this exercise i've learned about Fortran and C differences about data storage and improved my shell abilities.
 
-### Exercise 2
+### [Exercise 2](https://github.com/DantasB/High-Performance-Computing/tree/main/Second_Exercise)
 
 In this exercise i've learned about c profiling using gprof and some code optimizations.
 
-### Exercise 3
+### [Exercise 3](https://github.com/DantasB/High-Performance-Computing/tree/main/Third_Exercise)
 
 In this exercise i've learned about openmp and about parallelism in c++.
 

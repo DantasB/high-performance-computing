@@ -67,5 +67,3 @@ do
 done
 
 echo $(cd output && ls | xargs grep -e 'e+' | cut -d' ' -f1,48-52) >> ../$FINAL_OUTPUT 
-
-rm -rf $OUTPUT_DIR

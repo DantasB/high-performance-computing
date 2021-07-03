@@ -1,5 +1,14 @@
 #!/bin/bash
 
+if [ -d "HPL-test/" ] 
+then
+    echo $(rm -rf HPL-test/)
+fi
+
+git clone https://github.com/jvencels/HPL-test
+
+cd HPL-test/
+
 INPUT_FILE=HPL.dat
 OUTPUT_DIR=output
 FINAL_OUTPUT=result.txt

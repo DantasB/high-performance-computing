@@ -20,13 +20,10 @@ mkdir -p $OUTPUT_DIR
 
 for nbs in 32 64 128 256;
 do
-	echo "Running for nbs = $nbs"
 	for index in 0 1;
 	do
-		echo "Running for P = ${P_ARRAY[$index]} And Q = ${Q_ARRAY[$index]}"
 		for pmap in 0 1;
 		do
-			echo "Running for PMAP = $pmap"
 			for pfacts in 0 1 2;
 			do
 				echo "Current Parameters:"
@@ -75,7 +72,7 @@ do
 				echo '0                               number of additional blocking sizes for PTRANS'>> $INPUT_FILE
 				echo '40 9 8 13 13 20 16 32 64        values of NB'>> $INPUT_FILE
 				
-				echo $(docker run -v ${PWD}:/usr/local/hpl-2.2/HPLtest ashael/hpl HPLtest/run.sh -n $MAX_THREADS -t 3)
+				echo $(docker run -v ${PWD}:/usr/local/hpl-2.2/HPLtest ashael/hpl HPLtest/run.sh -n $MAX_THREADS -t 3) > tmp.out
 				echo $(cp log.out $OUTPUT_FILE)
 
 				echo 'Finished writing the output file.'
@@ -84,4 +81,6 @@ do
 	done
 done
 
-echo $(cd output && ls | xargs grep -e 'e+' | cut -d' ' -f1,48-52) >> ../$FINAL_OUTPUT 
+cd output/ && ls | xargs grep -e 'e+' | cut -d' ' -f1,48-52 > ../../$FINAL_OUTPUT 
+
+cd ../../ && rm -rf HPL-test/

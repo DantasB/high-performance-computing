@@ -9,6 +9,7 @@
   - [Exercise 1](#exercise-1)
   - [Exercise 2](#exercise-2)
   - [Exercise 3](#exercise-3)
+  - [Exercise 4](#exercise-4)
 - [Technologies](#technologies)
 <!--te-->
 
@@ -31,6 +32,10 @@ In this exercise i've learned about c profiling using gprof and some code optimi
 ### [Exercise 3](https://github.com/DantasB/High-Performance-Computing/tree/main/Third_Exercise)
 
 In this exercise i've learned about openmp and about parallelism in c++.
+
+### [Exercise 4](https://github.com/DantasB/High-Performance-Computing/tree/main/Fourth_Exercise)
+
+In this exercise i've learned about benchmarks, how to run and optimize it.
 
 ## Technologies
 

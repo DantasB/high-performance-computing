@@ -33,15 +33,6 @@ $ git clone <https://github.com/DantasB/Computacao-de-Alto-Desempenho>
 # Access the project page on your terminal
 $ cd Computacao-de-Alto-Desempenho/Fourth_Exercise/
 
-# Clone the benchmark docker repository
-$ git clone <https://github.com/jvencels/HPL-test>
-
-# Move the runner.sh to to the HPL-test directory
-$ cp runner.sh HPL-test/
-
-# Access the HPL directory on your terminal
-$ cd HPL-test/
-
 # Set the bash script permission to executable
 $ chmod +x runner
 

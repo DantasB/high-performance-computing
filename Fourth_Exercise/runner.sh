@@ -1,5 +1,14 @@
 #!/bin/bash
 
+if [ -d "HPL-test/" ] 
+then
+    echo $(rm -rf HPL-test/)
+fi
+
+git clone https://github.com/jvencels/HPL-test
+
+cd HPL-test/
+
 INPUT_FILE=HPL.dat
 OUTPUT_DIR=output
 FINAL_OUTPUT=result.txt
@@ -11,17 +20,21 @@ mkdir -p $OUTPUT_DIR
 
 for nbs in 32 64 128 256;
 do
-	echo "Running for nbs = $nbs"
 	for index in 0 1;
 	do
-		echo "Running for P = ${P_ARRAY[$index]} And Q = ${Q_ARRAY[$index]}"
 		for pmap in 0 1;
 		do
-			echo "Running for PMAP = $pmap"
 			for pfacts in 0 1 2;
 			do
-				echo "Running for PFACTS = $pfacts"
+				echo "Current Parameters:"
+				echo "nbs    = $nbs;"
+				echo "P      = ${P_ARRAY[$index]};"
+				echo "Q      = ${P_ARRAY[$index]};"
+				echo "PMAP   = $pmap;"
+				echo "PFACTS = $pfacts;"
+
 				OUTPUT_FILE="$OUTPUT_DIR/NBS=$nbs:P=${P_ARRAY[$index]}:Q=${Q_ARRAY[$index]}:PMAP=$pmap:PFACTS=$pfacts.out"
+
 				echo 'HPLinpack benchmark input file' > $INPUT_FILE
 				echo 'Innovative Computing Laboratory, University of Tennessee'>> $INPUT_FILE
 				echo 'HPL.out      output file name (if any)'>> $INPUT_FILE
@@ -59,11 +72,15 @@ do
 				echo '0                               number of additional blocking sizes for PTRANS'>> $INPUT_FILE
 				echo '40 9 8 13 13 20 16 32 64        values of NB'>> $INPUT_FILE
 				
-				echo $(docker run -v ${PWD}:/usr/local/hpl-2.2/HPLtest ashael/hpl HPLtest/run.sh -n $MAX_THREADS -t 3)
+				echo $(docker run -v ${PWD}:/usr/local/hpl-2.2/HPLtest ashael/hpl HPLtest/run.sh -n $MAX_THREADS -t 3) > tmp.out
 				echo $(cp log.out $OUTPUT_FILE)
+
+				echo 'Finished writing the output file.'
 			done
 		done
 	done
 done
 
-echo $(cd output && ls | xargs grep -e 'e+' | cut -d' ' -f1,48-52) >> ../$FINAL_OUTPUT 
+cd output/ && ls | xargs grep -e 'e+' | cut -d' ' -f1,48-52 > ../../$FINAL_OUTPUT 
+
+cd ../../ && rm -rf HPL-test/

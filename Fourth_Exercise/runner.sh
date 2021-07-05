@@ -18,13 +18,13 @@ Q_ARRAY=($MAX_THREADS $(($MAX_THREADS / 2)) )
 
 mkdir -p $OUTPUT_DIR 
 
-for nbs in 32;
+for nbs in 32 64 128 256;
 do
-	for index in 0;
+	for index in 0 1;
 	do
-		for pmap in 0;
+		for pmap in 0 1;
 		do
-			for pfacts in 0 1;
+			for pfacts in 0 1 2;
 			do
 				echo "Current Parameters:"
 				echo "nbs    = $nbs;"

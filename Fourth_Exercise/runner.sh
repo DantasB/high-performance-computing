@@ -11,20 +11,20 @@ cd HPL-test/
 
 INPUT_FILE=HPL.dat
 OUTPUT_DIR=output
-FINAL_OUTPUT=result.txt
+FINAL_OUTPUT=result
 MAX_THREADS=$(python -c "import psutil; print(psutil.cpu_count(logical=False))")
 P_ARRAY=(1 2)
 Q_ARRAY=($MAX_THREADS $(($MAX_THREADS / 2)) )
 
 mkdir -p $OUTPUT_DIR 
 
-for nbs in 32 64 128 256;
+for nbs in 32;
 do
-	for index in 0 1;
+	for index in 0;
 	do
-		for pmap in 0 1;
+		for pmap in 0;
 		do
-			for pfacts in 0 1 2;
+			for pfacts in 0 1;
 			do
 				echo "Current Parameters:"
 				echo "nbs    = $nbs;"
@@ -81,6 +81,14 @@ do
 	done
 done
 
-cd output/ && ls | xargs grep -e 'e+' | cut -d' ' -f1,48-52 > ../../$FINAL_OUTPUT 
+cd output/ && ls | xargs grep -e 'e+' | cut -d' ' -f1,48-52 > ../../$FINAL_OUTPUT.txt
 
 cd ../../ && rm -rf HPL-test/
+
+echo 'Starting the file treatment'
+
+python python_files/grep_parser.py $FINAL_OUTPUT.txt >> $FINAL_OUTPUT.csv
+
+echo 'File treatment finished'
+
+rm $FINAL_OUTPUT.txt

@@ -10,6 +10,7 @@
   - [Exercise 2](#exercise-2)
   - [Exercise 3](#exercise-3)
   - [Exercise 4](#exercise-4)
+  - [Exercise 5](#exercise-5)
 - [Technologies](#technologies)
 <!--te-->
 
@@ -37,10 +38,16 @@ In this exercise i've learned about openmp and about parallelism in c++.
 
 In this exercise i've learned about benchmarks, how to run and optimize it.
 
+### [Exercise 5](https://github.com/DantasB/High-Performance-Computing/tree/main/Fifth_Exercise)
+
+In this exercise i've learned how to build a roofline graph and its importance for a code.
+
 ## Technologies
 
 - Bash
 - C++
-- csv
+- CSV
 - openmp
 - Fortran
+- C
+- Python

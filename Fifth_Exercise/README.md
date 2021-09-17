@@ -49,7 +49,7 @@ $ ./ert ../../Config/config.modified
 
 ### Performance Analysis
 
-To run the performance analysis i've downloaded the VTune profiler to help me during the code analysis. The [memory-consumption](https://cdn.discordapp.com/attachments/539836343094870016/888207845764501544/unknown.png) image contains some information about the memory consumption of this code.
+To run the performance analysis i've downloaded the VTune profiler to help me during the code analysis. The [memory-consumption](https://cdn.discordapp.com/attachments/539836343094870016/888202854890868757/unknown.png) image contains some information about the memory consumption of this code.
 
 ## Technologies
 

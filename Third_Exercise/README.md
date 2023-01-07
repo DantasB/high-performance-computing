@@ -29,10 +29,10 @@ Also you will need to install the gcc compiler to run the code bellow.
 
 ```bash
 # Clone this repository
-$ git clone <https://github.com/DantasB/Computacao-de-Alto-Desempenho>
+$ git clone <https://github.com/DantasB/high-performance-computing>
 
 # Access the project page on your terminal
-$ cd Computacao-de-Alto-Desempenho/Third_Exercise/
+$ cd high-performance-computing/Third_Exercise/
 
 # Set the bash script permission to executable
 $ chmod +x runner

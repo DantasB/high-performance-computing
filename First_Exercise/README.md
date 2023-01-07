@@ -28,10 +28,10 @@ Also you will need to install the gcc and gfortran compiler to run the code bell
 
 ```bash
 # Clone this repository
-$ git clone <https://github.com/DantasB/Computacao-de-Alto-Desempenho>
+$ git clone <https://github.com/DantasB/high-performance-computing>
 
 # Access the project page on your terminal
-$ cd Computacao-de-Alto-Desempenho/First_Exercise/
+$ cd high-performance-computing/First_Exercise/
 
 # Install all the requirements
 $ pip install -r requirements.txt

@@ -30,10 +30,10 @@ To run this repository by yourself you will need to install the gcc compiler in 
 
 ```bash
 # Clone this repository
-$ git clone <https://github.com/DantasB/Computacao-de-Alto-Desempenho>
+$ git clone <https://github.com/DantasB/high-performance-computing>
 
 # Access the project page on your terminal
-$ cd Computacao-de-Alto-Desempenho/Second_Exercise/
+$ cd high-performance-computing/Second_Exercise/
 
 # Compile the c++ code using the pg flag
 $ g++ -pg laplace.cxx -o laplace
@@ -56,9 +56,9 @@ $ gprof laplace gmon.out > output.txt
 
 The code in this repository is not in the optimal way. You will need to figure out how to optimize and them decrease the execution time of it.
 
-In the [answers](https://github.com/DantasB/High-Performance-Computing/blob/main/Second_Exercise/Respostas.pdf) you will find some of the optimizations that i made.
+In the [answers](https://github.com/DantasB/high-performance-computing/blob/main/Second_Exercise/Respostas.pdf) you will find some of the optimizations that i made.
 
-I've also included the gprof archive of the 2 codes [main](https://github.com/DantasB/High-Performance-Computing/blob/main/Second_Exercise/gprof_files/main_code.txt) and [refactored](https://github.com/DantasB/High-Performance-Computing/blob/main/Second_Exercise/gprof_files/refactored_code.txt) containing all the gprof output for those 2 executions.
+I've also included the gprof archive of the 2 codes [main](https://github.com/DantasB/high-performance-computing/blob/main/Second_Exercise/gprof_files/main_code.txt) and [refactored](https://github.com/DantasB/high-performance-computing/blob/main/Second_Exercise/gprof_files/refactored_code.txt) containing all the gprof output for those 2 executions.
 
 ## Technologies
 

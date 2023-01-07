@@ -28,10 +28,10 @@ To run this repository by yourself you will need to install the [roofline toolki
 
 ```bash
 # Clone this repository
-$ git clone <https://github.com/DantasB/Computacao-de-Alto-Desempenho>
+$ git clone <https://github.com/DantasB/high-performance-computing>
 
 # Access the project page on your terminal
-$ cd Computacao-de-Alto-Desempenho/Fifth_Exercise/
+$ cd high-performance-computing/Fifth_Exercise/
 
 # Clone the ert project from the bitbucket url
 $ git clone https://bitbucket.org/berkeleylab/cs-roofline-toolkit/src/master/

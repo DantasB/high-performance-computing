@@ -28,10 +28,10 @@ Also you will need to have docker on your machine to run the benchmark correctly
 
 ```bash
 # Clone this repository
-$ git clone <https://github.com/DantasB/Computacao-de-Alto-Desempenho>
+$ git clone <https://github.com/DantasB/high-performance-computing>
 
 # Access the project page on your terminal
-$ cd Computacao-de-Alto-Desempenho/Fourth_Exercise/
+$ cd high-performance-computing/Fourth_Exercise/
 
 # Set the bash script permission to executable
 $ chmod +x runner
